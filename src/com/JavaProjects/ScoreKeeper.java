@@ -15,16 +15,19 @@ public class ScoreKeeper {
                 System.out.println("Player One: " + playerOnesCard.toCardName());
                 System.out.println("Player Two: " + playerTwosCard.toCardName());
             }
+            int higherCard = playerOnesCard.higherCard(playerOnesCard, playerTwosCard);
 
-            if (playerOnesCard.number > playerTwosCard.number) {
-                playerOnesScore++;
+            if (higherCard == playerOnesCard.number) playerOnesScore++;
+            if (higherCard == playerTwosCard.number) playerTwosScore++;
 
-            } else {
-                playerTwosScore++;
-            }
+            System.out.println();
+            System.out.println("pos: "+ playerOnesScore + " pos2: "+ playerTwosScore);
+
         }
 //      Im not sure if this is technically right but it doesn't matter because it is a
 //      50/50 chance either way.
-        return playerOnesScore > playerTwosScore ? 1 : 2;
+        if (playerOnesScore > playerTwosScore) return 1;
+        if (playerOnesScore < playerTwosScore) return 2;
+        return -1;
     }
 }

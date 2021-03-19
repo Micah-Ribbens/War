@@ -11,6 +11,7 @@ public class Main {
 	    Player playerOne = new Player(1, deckOfCards.cards);
 	    Player playerTwo = new Player(2, deckOfCards.cards);
 	    int winner = ScoreKeeper.winnerOfGame(playerOne.cards, playerTwo.cards, true);
-        System.out.println("Player Number " + winner + " is the winner of the game!");
+	    if (winner == -1) System.out.println("There was a tie");
+        else System.out.println("Player Number " + winner + " is the winner of the game!");
     }
 }

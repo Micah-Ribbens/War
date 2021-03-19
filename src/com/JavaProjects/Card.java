@@ -38,6 +38,20 @@ public class Card {
 //      Basically shifts everything to the right one number
         return numberToCard.get((number % 13) + 1) + " of " + numberToSuit.get(suitNumber);
     }
+    public int higherCard(Card card1, Card card2) {
+//      Ace being 13 -> King being 12 -> Queen being 11 etc.
+        int card1Power = (card1.number % 13) + 1;
+        int card2Power = (card2.number % 13) + 1;
+
+        if (card1Power == 1 && card2Power == 1) return -1;
+        
+        if (card1Power == 1) return card1.number;
+        if (card2Power == 1) return card2.number;
+
+        if (card1Power > card2Power) return card1.number;
+        if (card2Power > card1Power) return card2.number;
+        return -1;
+    }
     @Override
     public String toString() {
 //      To convert the number into a string
